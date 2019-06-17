@@ -12,7 +12,6 @@
   >
     <transition-group @leave="leave" @afterLeave="reset">
       <div
-        v-if="index<2"
         class="card-wrapper"
         v-for="(avatar, index) in avatars"
         :key="avatar.id"
@@ -67,9 +66,6 @@ export default {
     }
   },
   mounted() {
-    if (!this.$el.offsetWidth || !this.$el.offsetHeight) {
-      console.warn("高さを設定してください");
-    }
     this.size = {
       top: this.$el.offsetTop,
       width: this.$el.offsetWidth,
